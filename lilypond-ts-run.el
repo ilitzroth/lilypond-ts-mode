@@ -141,7 +141,7 @@ prefix argument RESET, clear and refresh the list."
   (interactive "P")
   (when reset
     (setf (multisession-value lilypond-ts--lily-installs-alist) nil))
-  (dolist (dir lilypond-ts-search-path)
+  (dolist (dir (seq-filter #'file-directory-p lilypond-ts-search-path))
     (dolist (bin (directory-files-recursively dir lilypond-ts--bin-regex nil t))
       (when (and (file-executable-p bin)
                  (not (cl-rassoc bin (multisession-value
