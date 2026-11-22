@@ -67,6 +67,7 @@
 
 (require 'lilypond-ts-base)
 (require 'compile)
+(require 'multisession)
 
 (defgroup lilypond-ts-run nil
   "Settings for finding, selecting, and running the LilyPond binary."
